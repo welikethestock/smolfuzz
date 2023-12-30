@@ -1,4 +1,4 @@
-#include "fuzz.h"
+#include "smolfuzz.h"
 #include <stdio.h>  
 
 u32 check_code(u32 code)

@@ -1,5 +1,5 @@
-#ifndef __HEADER_SMOLFUZZ_FUZZ__
-#define __HEADER_SMOLFUZZ_FUZZ__
+#ifndef __HEADER_SMOLFUZZ__
+#define __HEADER_SMOLFUZZ__
 
 #include "common.h"
 #include "arg.h"
