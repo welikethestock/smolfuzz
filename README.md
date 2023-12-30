@@ -1,6 +1,7 @@
 noteworthy:
 
-0 dependencies (including any c runtime libs) aslong as you define fuzz_random_func
+0 dependencies (including any c runtime libs) aslong as you define fuzz_random_func via preprocessor (preferably using a compiler switch).
+if fuzz_random_func is not defined it includes immintrin.h and uses _rdrand_step64
  
 
 ai gen summary:
