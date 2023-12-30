@@ -70,7 +70,7 @@ bool_c fuzz_call_check_result(fuzz_call_description_t *call_description, fuzz_ca
     for(; (description)->repetitons != 0; --(description)->repetitons) \
     { \
         fuzz_call_return_value_t ret_value = fuzz_perform_call((description)->func, description); \
-        if(fuzz_call_check_result(description, ret_value) && &(description)->callback != NULL) \
+        if(fuzz_call_check_result(description, ret_value) && (description)->callback != NULL) \
         { \
             (description)->callback(ret_value, (description)); \
         } \
