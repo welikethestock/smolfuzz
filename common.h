@@ -9,22 +9,24 @@
     #define EXTERN_C_END
 #endif
 
-typedef char                i8;
-typedef unsigned char       u8;
-typedef short               i16;
-typedef unsigned short      u16;
-typedef int                 i32, bool_c;
-typedef unsigned int        u32;
-typedef long long           i64;
-typedef unsigned long long  u64;
-
-typedef unsigned long       size;
-typedef long                ssize;
-
-#define _cast(type, value) \
-    ((type)(value))
+#ifndef SMOLLFUZ_NO_TYPES
+#define i8      char
+#define u8      unsigned char
+#define i16     short 
+#define u16     unsigned short
+#define i32     int
+#define u32     unsigned int
+#define i64     long long
+#define u64     unsigned long long
+#define bool_c  i32
+#define size    unsigned long
+#define ssize   long
 
 #define FALSE_C 0
 #define TRUE_C  1
+#endif
+
+#define _cast(type, value) \
+    ((type)(value))
 
 #endif
