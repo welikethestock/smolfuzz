@@ -38,7 +38,7 @@ DEFINE_FUZZ_TARGETS(
     ),
     DEFINE_FUZZ_TARGET(
         check_char,
-        256,
+        1000,
         FUZZ_CALL_CDECL,
         fuzz_call_return_value_neq('-'),
         plus_encountered,
@@ -46,7 +46,7 @@ DEFINE_FUZZ_TARGETS(
         fuzz_call_arg(
             FUZZ_CALL_ARG_U8,
             FALSE_C,
-            fuzz_arg_step(1, -1, FALSE_C)
+            fuzz_arg_min_max(0, 255, FALSE_C)
         )
     )
 );

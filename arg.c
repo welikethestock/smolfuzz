@@ -17,7 +17,7 @@ u32 fuzz_arg_u32(fuzz_arg_state_t *state, fuzz_arg_options_t options)
 
 #ifndef fuzz_random_func
 #include <immintrin.h>
-#define fuzz_random_func _rdrand64_step
+#define fuzz_random_func _rdseed64_step
 #else
 extern
 int fuzz_random_func(unsigned long long *);
