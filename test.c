@@ -8,7 +8,7 @@ u32 check_code(u32 code)
 
 void code_bruteforced(fuzz_call_return_value_t return_value, fuzz_call_description_t *call_description)
 {
-    printf("code bruteforced: %d\n", return_value._32);
+    printf("code bruteforced: %d (%d)\n", return_value._32, call_description->last_args[0]);
 }
 
 u8 check_char(char c)
@@ -18,7 +18,7 @@ u8 check_char(char c)
 
 void plus_encountered(fuzz_call_return_value_t return_value, fuzz_call_description_t *call_description)
 {
-    printf("plus encountered\n");
+    printf("plus encountered (%d)\n", call_description->last_args[0]);
 }
 
 DEFINE_FUZZ_TARGETS(

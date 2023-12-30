@@ -5,6 +5,14 @@
 
 EXTERN_C_START
 
+typedef enum
+{
+    FUZZ_CALL_ARG_U64 = 0,
+    FUZZ_CALL_ARG_U32,
+    FUZZ_CALL_ARG_U16,
+    FUZZ_CALL_ARG_U8,
+    FUZZ_CALL_ARG_PTR,
+} fuzz_call_arg_type_t;
 typedef struct
 {
     u64     counter;

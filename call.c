@@ -36,7 +36,7 @@ fuzz_call_return_value_t fuzz_perform_call(void *function, fuzz_call_description
             ret._64 = _cast(
                 u64, 
                 _cast(fuzz_call_args1_cdecl, function)(
-                    _arg(a1, description->args[0].options)
+                    description->last_args[0] = _arg(a1, description->args[0].options)
                 )
             ) & _cast(u64, -1);
 
@@ -52,8 +52,8 @@ fuzz_call_return_value_t fuzz_perform_call(void *function, fuzz_call_description
             ret._64 = _cast(
                 u64, 
                 _cast(fuzz_call_args2_cdecl, function)(
-                    _arg(a1, description->args[0].options), 
-                    _arg(a2, description->args[1].options)
+                    description->last_args[0] = _arg(a1, description->args[0].options), 
+                    description->last_args[1] = _arg(a2, description->args[1].options)
                 )
             ) & _cast(u64, -1);
 
@@ -70,9 +70,9 @@ fuzz_call_return_value_t fuzz_perform_call(void *function, fuzz_call_description
             ret._64 = _cast(
                 u64, 
                 _cast(fuzz_call_args3_cdecl, function)(
-                    _arg(a1, description->args[0].options), 
-                    _arg(a2, description->args[1].options), 
-                    _arg(a3, description->args[2].options)
+                    description->last_args[0] = _arg(a1, description->args[0].options), 
+                    description->last_args[1] = _arg(a2, description->args[1].options), 
+                    description->last_args[2] = _arg(a3, description->args[2].options)
                 )
             ) & _cast(u64, -1);
 
@@ -90,10 +90,10 @@ fuzz_call_return_value_t fuzz_perform_call(void *function, fuzz_call_description
             ret._64 = _cast(
                 u64, 
                 _cast(fuzz_call_args4_cdecl, function)(
-                    _arg(a1, description->args[0].options), 
-                    _arg(a2, description->args[1].options), 
-                    _arg(a3, description->args[2].options),
-                    _arg(a4, description->args[3].options)
+                    description->last_args[0] = _arg(a1, description->args[0].options), 
+                    description->last_args[1] = _arg(a2, description->args[1].options), 
+                    description->last_args[2] = _arg(a3, description->args[2].options),
+                    description->last_args[3] = _arg(a4, description->args[3].options)
                 )
             ) & _cast(u64, -1);
 
@@ -112,11 +112,11 @@ fuzz_call_return_value_t fuzz_perform_call(void *function, fuzz_call_description
             ret._64 = _cast(
                 u64, 
                 _cast(fuzz_call_args5_cdecl, function)(
-                    _arg(a1, description->args[0].options), 
-                    _arg(a2, description->args[1].options), 
-                    _arg(a3, description->args[2].options),
-                    _arg(a4, description->args[3].options),
-                    _arg(a5, description->args[4].options)
+                    description->last_args[0] = _arg(a1, description->args[0].options), 
+                    description->last_args[1] = _arg(a2, description->args[1].options), 
+                    description->last_args[2] = _arg(a3, description->args[2].options),
+                    description->last_args[3] = _arg(a4, description->args[3].options),
+                    description->last_args[4] = _arg(a5, description->args[4].options)
                 )
             ) & _cast(u64, -1);
 
@@ -136,12 +136,12 @@ fuzz_call_return_value_t fuzz_perform_call(void *function, fuzz_call_description
             ret._64 = _cast(
                 u64, 
                 _cast(fuzz_call_args6_cdecl, function)(
-                    _arg(a1, description->args[0].options), 
-                    _arg(a2, description->args[1].options), 
-                    _arg(a3, description->args[2].options),
-                    _arg(a4, description->args[3].options),
-                    _arg(a5, description->args[4].options),
-                    _arg(a6, description->args[5].options)
+                    description->last_args[0] = _arg(a1, description->args[0].options), 
+                    description->last_args[1] = _arg(a2, description->args[1].options), 
+                    description->last_args[2] = _arg(a3, description->args[2].options),
+                    description->last_args[3] = _arg(a4, description->args[3].options),
+                    description->last_args[4] = _arg(a5, description->args[4].options),
+                    description->last_args[5] = _arg(a6, description->args[5].options)
                 )
             ) & _cast(u64, -1);
 
@@ -162,13 +162,13 @@ fuzz_call_return_value_t fuzz_perform_call(void *function, fuzz_call_description
             ret._64 = _cast(
                 u64, 
                 _cast(fuzz_call_args7_cdecl, function)(
-                    _arg(a1, description->args[0].options), 
-                    _arg(a2, description->args[1].options), 
-                    _arg(a3, description->args[2].options),
-                    _arg(a4, description->args[3].options),
-                    _arg(a5, description->args[4].options),
-                    _arg(a6, description->args[5].options),
-                    _arg(a7, description->args[6].options)
+                    description->last_args[0] = _arg(a1, description->args[0].options), 
+                    description->last_args[1] = _arg(a2, description->args[1].options), 
+                    description->last_args[2] = _arg(a3, description->args[2].options),
+                    description->last_args[3] = _arg(a4, description->args[3].options),
+                    description->last_args[4] = _arg(a5, description->args[4].options),
+                    description->last_args[5] = _arg(a6, description->args[5].options),
+                    description->last_args[6] = _arg(a7, description->args[6].options)
                 )
             ) & _cast(u64, -1);
 
@@ -190,14 +190,14 @@ fuzz_call_return_value_t fuzz_perform_call(void *function, fuzz_call_description
             ret._64 = _cast(
                 u64, 
                 _cast(fuzz_call_args8_cdecl, function)(
-                    _arg(a1, description->args[0].options), 
-                    _arg(a2, description->args[1].options), 
-                    _arg(a3, description->args[2].options),
-                    _arg(a4, description->args[3].options),
-                    _arg(a5, description->args[4].options),
-                    _arg(a6, description->args[5].options),
-                    _arg(a7, description->args[6].options),
-                    _arg(a8, description->args[7].options)
+                    description->last_args[0] = _arg(a1, description->args[0].options), 
+                    description->last_args[1] = _arg(a2, description->args[1].options), 
+                    description->last_args[2] = _arg(a3, description->args[2].options),
+                    description->last_args[3] = _arg(a4, description->args[3].options),
+                    description->last_args[4] = _arg(a5, description->args[4].options),
+                    description->last_args[5] = _arg(a6, description->args[5].options),
+                    description->last_args[6] = _arg(a7, description->args[6].options),
+                    description->last_args[7] = _arg(a8, description->args[7].options)
                 )
             ) & _cast(u64, -1);
 

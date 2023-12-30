@@ -7,15 +7,6 @@
 
 EXTERN_C_START
 
-typedef enum
-{
-    FUZZ_CALL_ARG_U64 = 0,
-    FUZZ_CALL_ARG_U32,
-    FUZZ_CALL_ARG_U16,
-    FUZZ_CALL_ARG_U8,
-    FUZZ_CALL_ARG_PTR,
-} fuzz_call_arg_type_t;
-
 typedef struct
 {
     fuzz_call_arg_type_t    type;
@@ -53,6 +44,7 @@ typedef struct fuzz_call_description_t
     };
     fuzz_call_return_value_description_t    return_val_description;
     fuzz_callback_fn                        callback;
+    size                                    last_args[8];
 } fuzz_call_description_t;
 
 #define fuzz_call_description(_func, _repetitons, _calling_con, _return_val_description, _callback, _arg_count, ...) \
@@ -64,17 +56,21 @@ typedef struct fuzz_call_description_t
         .args = { __VA_ARGS__ }, \
         .calling_con = _calling_con, \
         .return_val_description = _return_val_description, \
-        .callback = _callback \
+        .callback = _callback, \
+        .last_args = { 0 } \
     }
 
 extern
 fuzz_call_return_value_t fuzz_perform_call(void *function, fuzz_call_description_t *description);
 
+extern
+bool_c fuzz_call_check_result(fuzz_call_description_t *call_description, fuzz_call_return_value_t result);
+
 #define fuzz_perform_calls(description) \
     for(; (description)->repetitons != 0; --(description)->repetitons) \
     { \
         fuzz_call_return_value_t ret_value = fuzz_perform_call((description)->func, description); \
-        if(fuzz_call_check_result(&(description)->return_val_description, ret_value) && &(description)->callback != NULL) \
+        if(fuzz_call_check_result(description, ret_value) && &(description)->callback != NULL) \
         { \
             (description)->callback(ret_value, (description)); \
         } \

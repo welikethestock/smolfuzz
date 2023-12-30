@@ -26,8 +26,7 @@ typedef enum
     FUZZ_CALL_RETURN_VAL_CUSTOM
 } fuzz_call_return_value_type_t;
 
-typedef bool_c(*fuzz_call_return_value_check_fn)(fuzz_call_return_value_t return_value, struct fuzz_call_return_value_description_t *description);
-
+typedef bool_c(*fuzz_call_return_value_check_fn)(fuzz_call_return_value_t return_value, struct fuzz_call_description_t *call_description);
 typedef struct fuzz_call_return_value_description_t
 {
     union
@@ -74,9 +73,6 @@ typedef struct fuzz_call_return_value_description_t
 
 #define fuzz_call_return_value_custom(func) \
     { .custom = func, .type = FUZZ_CALL_RETURN_VAL_CUSTOM }
-
-extern
-bool_c fuzz_call_check_result(fuzz_call_return_value_description_t *ret_val_desc, fuzz_call_return_value_t result);
 
 EXTERN_C_END
 
