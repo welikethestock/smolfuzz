@@ -1,3 +1,8 @@
+noteworthy:
+
+0 dependencies (including any c runtime libs) aslong as you define fuzz_random_func
+ 
+
 ai gen summary:
 
 # Overview
